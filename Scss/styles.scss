@@ -1,0 +1,251 @@
+$primary-color: #a437db;
+$secondary-color: #4bb1f1;
+$accent-color: #bb84e8;
+$text-color: black;
+$background-color: #ffffff;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html {
+  scroll-behavior: smooth;
+}
+@font-face {
+  font-family: "MyCustomFont";
+  src: url("../assets/fonts/Akronim.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+body {
+  background-color: $background-color;
+  color: $text-color;
+  font-family: "MyCustomFont", sans-serif;
+  overflow-x: hidden;
+}
+body::-webkit-scrollbar {
+  display: none;
+}
+
+.button-primary {
+  background-color: $primary-color;
+  color: $background-color;
+}
+
+.button-secondary {
+  background-color: $secondary-color;
+  color: $background-color;
+}
+
+.highlight {
+  background-color: $accent-color;
+  color: $text-color;
+}
+
+////////////////////////////////////////////////////////////////////////////////////////////////
+
+@mixin viewSize {
+  width: 100vw;
+  height: 100vh;
+}
+
+@mixin postionItTopLeft($top, $left) {
+  top: $top;
+  left: $left;
+}
+@mixin postionItBottomRight($bottom, $right) {
+  bottom: $bottom;
+  right: $right;
+}
+@mixin anotherFont() {
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif !important;
+}
+
+main {
+  @include viewSize();
+  position: relative;
+}
+.tree {
+  @include postionItBottomRight(-5%, -3%);
+}
+.branch {
+  @include postionItTopLeft(5%, 0%);
+}
+
+.rabbit {
+  bottom: -1%;
+  left: 5%;
+}
+
+.flower {
+  bottom: 0%;
+  left: 13%;
+}
+.flower2 {
+  bottom: 0%;
+  left: -2%;
+}
+.maintext {
+  @include postionItTopLeft(50%, 45%);
+  transform: translate(-50%, -50%);
+  font-size: 11rem;
+  color: $primary-color;
+}
+.sectext {
+  font-size: 2rem;
+  top: 62%;
+  left: 43%;
+  color: $text-color;
+  opacity: 0.6;
+  @include anotherFont();
+}
+
+//////////////////////////////////////////////////
+///
+///
+.task-schedular {
+  @include viewSize();
+}
+
+th,
+td {
+  text-align: center;
+}
+th {
+  font-size: 1.5rem;
+}
+td {
+  padding: 1% 0%;
+  @include anotherFont();
+  transition: 0.5s all ease-in-out;
+}
+.noteit {
+  background-color: $secondary-color;
+  @include anotherFont();
+  color: white;
+  transition: 0.3s all ease-in-out;
+  &:hover {
+    color: $primary-color !important;
+  }
+}
+.search {
+  width: 200px;
+  height: 100%;
+  @include anotherFont();
+  border: none;
+  border-bottom: 1px solid black;
+  &:hover,
+  &:active,
+  &:focus {
+    border: none !important;
+  }
+}
+
+form {
+  @include anotherFont();
+}
+.modal-footer .btn {
+  @include anotherFont();
+}
+.infoIcon {
+  color: $secondary-color;
+
+  cursor: pointer;
+  font-size: large;
+  transition: 0.3s all ease-in-out;
+  &:hover {
+    color: black;
+  }
+}
+
+.caption {
+  top: 30%;
+  left: 5%;
+  width: 25%;
+  height: 40%;
+  font-size: 92px;
+}
+strong {
+  font-family: "MyCustomFont", sans-serif;
+  font-weight: 500;
+  color: $primary-color;
+}
+.p1 {
+  color: #8fdfa6;
+}
+.p2 {
+  color: $secondary-color;
+  transform: translateX(10%);
+}
+.p3 {
+  color: #345ba7;
+  transform: translateX(22%);
+}
+
+///////////////////////////////////////////////////////////
+///
+.action-icons {
+  display: none;
+  position: absolute;
+  background-color: white;
+  padding: 5px;
+  z-index: 100;
+  border-radius: 50%;
+  transform: translate(90%, -40%);
+}
+
+.action-icons i {
+  font-size: small;
+  display: block;
+  margin: 5px 0;
+  background-color: white;
+  border-radius: 50%;
+  padding: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  transition: transform 0.5s ease-in-out;
+}
+
+.action-icons i:hover {
+  transform: scale(1.1);
+}
+
+.arc-icons {
+  transform-origin: center center;
+}
+
+.arc-icons:nth-child(1) {
+  transform: rotate(-40deg) translate(10px) rotate(40deg);
+  &:hover {
+    color: red;
+    transform: rotate(-40deg) translate(5px) rotate(40deg);
+  }
+}
+
+.arc-icons:nth-child(2) {
+  transform: rotate(-20deg) translate(50px) rotate(20deg);
+  &:hover {
+    transform: rotate(-20deg) translate(45px) rotate(20deg);
+    color: $primary-color;
+  }
+}
+
+.arc-icons:nth-child(3) {
+  transform: rotate(0deg) translate(50px) rotate(0deg);
+  &:hover {
+    transform: rotate(0deg) translate(45px) rotate(0deg);
+    color: green;
+  }
+}
+.arc-icons:nth-child(4) {
+  transform: rotate(20deg) translate(10px) rotate(-20deg);
+  &:hover {
+    transform: rotate(20deg) translate(5px) rotate(-20deg);
+  }
+}
+
+.SearchBy {
+  width: 20%;
+  height: 100%;
+  @include anotherFont();
+  padding: 5px;
+}
